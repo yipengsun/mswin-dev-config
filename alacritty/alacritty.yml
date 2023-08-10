@@ -4,6 +4,19 @@ window:
     columns: 200
     lines: 50
 
+font:
+  normal:
+    family: FiraCode Nerd Font Mono
+
+  bold:
+    family: FiraCode Nerd Font Mono
+
+  italic:
+    family: FiraCode Nerd Font Mono
+
+  bold_italic:
+    family: FiraCode Nerd Font Mono
+
 # Dracula theme for Alacritty
 # https://draculatheme.com/alacritty
 #
