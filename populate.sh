@@ -1,8 +1,12 @@
 USER=solar
-APPDATA=/mnt/c/Users/$USER/AppData/Roaming
+USERDATA=/mnt/c/Users/$USER
+APPDATA=$USERDATA/AppData/Roaming
 
 echo 'copying alacrity config...'
 cp -r ./alacritty $APPDATA
 
 echo 'copying git config...'
-cp ./git/.gitconfig /mnt/c/Users/$USER
+cp ./git/.gitconfig $USERDATA
+
+echo 'copying bash config...'
+cp ./bash/.bash_profile $USERDATA
