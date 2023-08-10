@@ -4,3 +4,30 @@
 
 [credential]
 	helper = C:/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+
+[alias]
+	a = "add"
+	bD = "branch -D"
+	ba = "branch -a"
+	bd = "branch -d"
+	bdm = "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
+	c = "commit"
+	co = "checkout"
+	cob = "checkout -b"
+	d = "diff"
+	dc = "diff --cached"
+	ds = "diff --staged"
+	f = "fetch -p"
+	h1rd = "hard HEAD~1"
+	hard = "reset --hard"
+	lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	p = "push"
+	pl = "pull"
+	plog = "log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'"
+	r = "restore"
+	rank = "shortlog -sn --no-merges"
+	rs = "restore --staged"
+	s1ft = "soft HEAD~1"
+	soft = "reset --soft"
+	st = "status -sb"
+	tlog = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
