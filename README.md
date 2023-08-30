@@ -6,7 +6,7 @@ Dev config on Microsoft Windows.
 
 By default Windows may prevent execution of PS scripts. To fix that:
 ```
-set-executionpolicy remotesigned
+set-executionpolicy unrestricted
 ```
 
 
