@@ -10,3 +10,6 @@ cp ./git/.gitconfig $USERDATA
 
 echo 'copying bash config...'
 cp ./bash/.bash_profile $USERDATA
+
+echo 'copying Windows cli-only programs'
+cp -r ./commands $USERDATA
