@@ -23,3 +23,8 @@ They need to be made available in `$PATH`. To do so:
 
 `FiraCode Nerd Font Mono` is required. Consult the `nerd-font` repo on
 installation in Windows.
+
+
+## Add a US keyboard
+
+See [here](https://www.bilibili.com/read/cv14827165/).
