@@ -11,3 +11,7 @@ Copy-Item './bash/.bash_profile' $env:USERPROFILE
 
 Write-output 'copying Windows cli-only programs...'
 Copy-Item -Force './commands' $env:USERPROFILE
+
+Write-output 'copying PowerShell config...'
+$poshpath = -join([Environment]::GetFolderPath("MyDocuments"), '\WindowsPowerShell')
+Copy-Item './posh/profile.ps1' -Destination $poshpath

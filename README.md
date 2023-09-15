@@ -36,8 +36,6 @@ installation in Windows.
 ## PowerShell
 
 Install `oh-my-posh` following instructions [here](https://github.com/jandedobbeleer/oh-my-posh).
-Then, copy `posh/Microsoft.PowerShell_profile.ps1` to `$PROFILE`.
-
 If VS code is installed, the PowerShell profile can be edited with:
 
 ```

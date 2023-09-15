@@ -10,4 +10,5 @@ Set-Alias -Name vi -Value vim
 # PowerShell 5
 If (Test-Path Alias:ls) {Remove-Item Alias:ls}
 
+# initiate oh-my-posh 
 oh-my-posh init pwsh | Invoke-Expression
