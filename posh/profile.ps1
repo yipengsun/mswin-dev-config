@@ -8,6 +8,6 @@ Set-Alias -Name vi -Value vim
 
 # 'ls' already exist. just remove it
 # PowerShell 5
-Remove-Item Alias:ls
+If (Test-Path Alias:ls) {Remove-Item Alias:ls}
 
 oh-my-posh init pwsh | Invoke-Expression
