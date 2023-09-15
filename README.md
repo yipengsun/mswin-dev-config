@@ -1,6 +1,12 @@
 # mswin-dev-config
 Dev config on Microsoft Windows.
 
+Copy config via:
+
+```
+./populate.ps1
+```
+
 
 ## PowerShell script
 
