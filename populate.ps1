@@ -8,6 +8,7 @@ Copy-Item './git/.gitconfig' $env:USERPROFILE
 
 Write-output 'copying bash config...'
 Copy-Item './bash/.bash_profile' $env:USERPROFILE
+Copy-Item './bash/.bashrc' $env:USERPROFILE
 
 Write-output 'copying Windows cli-only programs...'
 Copy-Item -Force './commands' $env:USERPROFILE

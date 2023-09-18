@@ -5,6 +5,8 @@ window:
     lines: 50
 
 font:
+  size: 14 #pt
+
   normal:
     family: FiraCode Nerd Font Mono
 
