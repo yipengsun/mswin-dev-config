@@ -8,7 +8,9 @@ Set-Alias -Name vi -Value vim
 
 # 'ls' already exist. just remove it
 # PowerShell 5
-If (Test-Path Alias:ls) {Remove-Item Alias:ls}
+If (Test-Path Alias:ls) { Remove-Item Alias:ls }
+Function lsColored { ls.exe --color $args }
+Set-Alias -Name ls -Value lsColored
 
 # initiate oh-my-posh 
 oh-my-posh init pwsh | Invoke-Expression
