@@ -46,3 +46,12 @@ code $PROFILE
 ## Add a US keyboard
 
 See [here](https://www.bilibili.com/read/cv14827165/).
+
+
+## Install build tools
+
+```
+winget install Microsoft.VisualStudio.2022.BuildTools
+winget install Microsoft.VisualStudio.2022.Community
+winget install CMake
+```
