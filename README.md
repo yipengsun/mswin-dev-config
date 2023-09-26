@@ -14,6 +14,11 @@ set-executionpolicy unrestricted
 ```
 
 
+## Automatically update `PATH` for `winget` CLI programs
+
+Install `WingetPathUpdater` first.
+
+
 ## Applications installed w/ `winget`
 
 ```
