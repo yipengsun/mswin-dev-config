@@ -31,5 +31,8 @@ AddTo-Path $cmdpath
 # for GNU coreutils on Windows
 AddTo-Path "C:\Program Files\Git\usr\bin"
 
+# for LLVM
+AddTo-Path "C:\Program Files\LLVM\bin"
+
 # print out
 Get-Path User
