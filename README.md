@@ -43,18 +43,21 @@ SumatraPDF                                 SumatraPDF.SumatraPDF                
 # dev
 Alacritty                                  Alacritty.Alacritty                           0.12.2                  winget
 Git                                        Git.Git                                       2.42.0.2                winget
+Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
 XMake build utility (x64)                  Xmake-io.Xmake                                2.7.9+20230515          winget
 CMake                                      Kitware.CMake                                 3.27.6                  winget
-Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
+####
 Visual Studio Community 2022 (2)           Microsoft.VisualStudio.2022.Community         17.7.4                  winget
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
+####
 Microsoft Visual Studio Code (User)        Microsoft.VisualStudioCode                    1.82.2                  winget
-Microsoft Visual C++ 2013 Redistributable  Microsoft.VCRedist.2013.x64                   12.0.40664.0            winget
+####
 Microsoft Visual C++ 2010  x64 Redistribu  Microsoft.VCRedist.2010.x64                   10.0.40219              winget
+Microsoft Visual C++ 2012 Redistributable  Microsoft.VCRedist.2012.x64                   11.0.61030.0            winget
 Microsoft Visual C++ 2012 Redistributable  Microsoft.VCRedist.2012.x86                   11.0.61030.0            winget
+Microsoft Visual C++ 2013 Redistributable  Microsoft.VCRedist.2013.x64                   12.0.40664.0            winget
 Microsoft Visual C++ 2013 Redistributable  Microsoft.VCRedist.2013.x86                   12.0.40664.0            winget
 Microsoft Visual C++ 2015-2022 Redistribu  Microsoft.VCRedist.2015+.x64                  14.38.32919.0           winget
-Microsoft Visual C++ 2012 Redistributable  Microsoft.VCRedist.2012.x64                   11.0.61030.0            winget
 
 # games
 Steam                                      Valve.Steam                                   2.10.91.91              winget
