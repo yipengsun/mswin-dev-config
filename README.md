@@ -47,8 +47,8 @@ Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh              
 XMake build utility (x64)                  Xmake-io.Xmake                                2.7.9+20230515          winget
 CMake                                      Kitware.CMake                                 3.27.6                  winget
 ####
-Visual Studio Community 2022 (2)           Microsoft.VisualStudio.2022.Community         17.7.4                  winget
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
+#Visual Studio Community 2022 (2)           Microsoft.VisualStudio.2022.Community         17.7.4                  winget
 ####
 Microsoft Visual Studio Code (User)        Microsoft.VisualStudioCode                    1.82.2                  winget
 ####
@@ -115,7 +115,6 @@ See [here](https://www.bilibili.com/read/cv14827165/).
 ## Install build tools
 
 ```
-winget install Microsoft.VisualStudio.2022.BuildTools
-winget install Microsoft.VisualStudio.2022.Community
+winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
 winget install CMake
 ```
