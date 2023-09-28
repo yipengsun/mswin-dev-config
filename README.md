@@ -13,6 +13,13 @@ By default Windows may prevent execution of PS scripts. To fix that:
 set-executionpolicy unrestricted
 ```
 
+Some Windows command-line only programs are needed (w.r.t. Interoperability w/ WSL).
+They need to be made available in `$PATH`. To do so:
+
+```
+./setpath.ps1
+```
+
 
 ## Automatically update `PATH` for `winget` CLI programs
 
@@ -83,16 +90,6 @@ wsl --unregister NixOS
 # on a new computer
 wsl --import NixOS D:\WSL\backup\NixOS.tar
 wsl --setdefault NixOS
-```
-
-
-## PATH
-
-Some Windows command-line only programs are needed (w.r.t. Interoperability w/ WSL).
-They need to be made available in `$PATH`. To do so:
-
-```
-./setpath.ps1
 ```
 
 
