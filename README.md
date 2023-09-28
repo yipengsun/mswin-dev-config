@@ -130,6 +130,9 @@ winget install CMake
 
 ## Take ownership of a folder
 
+First, add _Take Ownership_ to context menu with `EcMenu`, then right click to
+take ownership of `<foldername>`, finally:
+
 ```
 takeown /f <foldername> /r /d y
 ```
