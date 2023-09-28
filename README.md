@@ -10,7 +10,8 @@ Copy config via:
 By default Windows may prevent execution of PS scripts. To fix that:
 
 ```
-set-executionpolicy unrestricted
+Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 ```
 
 Some Windows command-line only programs are needed (w.r.t. Interoperability w/ WSL).
