@@ -89,6 +89,8 @@ wsl --unregister NixOS
 
 # on a new computer
 wsl --import NixOS D:\WSL\backup\NixOS.tar
+# or
+wsl --import-in-place NixOS D:\WSL\NixOS\ext4.vhdx
 wsl --setdefault NixOS
 ```
 
