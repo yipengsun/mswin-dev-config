@@ -1,8 +1,6 @@
 # Config
 window:
-  dimensions:
-    columns: 200
-    lines: 50
+  startup_mode: Maximized
 
 font:
   size: 12 #pt
