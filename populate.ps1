@@ -1,18 +1,18 @@
 #!/usr/bin/env powershell.exe
 
-Write-output 'copying alacrity config...'
-Copy-Item -Force './alacritty' -Destination $env:APPDATA
+Write-Output "copying alacrity config to $($env:APPDATA)..."
+Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
 
-Write-output 'copying git config...'
-Copy-Item './git/.gitconfig' $env:USERPROFILE
+Write-Output "copying git config to $($env:USERPROFILE)..."
+Copy-Item './git/.gitconfig' -Destination $env:USERPROFILE
 
-Write-output 'copying bash config...'
-Copy-Item './bash/.bash_profile' $env:USERPROFILE
-Copy-Item './bash/.bashrc' $env:USERPROFILE
+Write-Output "copying bash config to $($env:USERPROFILE)..."
+Copy-Item './bash/.bash_profile' -Destination $env:USERPROFILE
+Copy-Item './bash/.bashrc' -Destination $env:USERPROFILE
 
-Write-output 'copying Windows cli-only programs...'
-Copy-Item -Force './commands' $env:USERPROFILE
+Write-Output "copying Windows cli-only programs to $($env:USERPROFILE)..."
+Copy-Item -Force -Recurse './commands' -Destination $env:USERPROFILE
 
-Write-output 'copying PowerShell config...'
 $poshpath = -join([Environment]::GetFolderPath("MyDocuments"), '\WindowsPowerShell')
+Write-Output "copying PowerShell config to $($poshpath)..."
 Copy-Item './posh/profile.ps1' -Destination $poshpath
