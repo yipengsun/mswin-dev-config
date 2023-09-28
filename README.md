@@ -98,8 +98,11 @@ They need to be made available in `$PATH`. To do so:
 
 ## Fonts
 
-`FiraCode Nerd Font Mono` is required. Consult the `nerd-font` repo on
-installation in Windows.
+`FiraCode Nerd Font Mono` is required. To install:
+
+```
+./install.ps1 FiraCode
+```
 
 
 ## PowerShell
@@ -122,4 +125,11 @@ See [here](https://www.bilibili.com/read/cv14827165/).
 ```
 winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
 winget install CMake
+```
+
+
+## Take ownership of a folder
+
+```
+takeown /f <foldername> /r /d y
 ```
