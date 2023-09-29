@@ -51,6 +51,7 @@ SumatraPDF                                 SumatraPDF.SumatraPDF                
 #Logitech Unifying                          Logitech.UnifyingSoftware                     2.52.33                 winget
 
 # dev
+PowerShell 7-x64                           Microsoft.PowerShell                          7.3.7.0                 winget
 Alacritty                                  Alacritty.Alacritty                           0.12.2                  winget
 Git                                        Git.Git                                       2.42.0.2                winget
 Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
@@ -116,6 +117,15 @@ If VS code is installed, the PowerShell profile can be edited with:
 ```
 code $PROFILE
 ```
+
+It is recommended to upgrade to PowerShell 7. To do so:
+
+```
+winget install --id Microsoft.Powershell --source winget
+```
+
+To set PowerShell 7 as the default shell in _Windows Terminal_:
+**Settings** > **Startup**, then choose **PowerShell** from the Default profile.
 
 
 ## Add a US keyboard
