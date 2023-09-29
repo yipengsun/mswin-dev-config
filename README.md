@@ -7,24 +7,21 @@ Copy config via:
 ./populate.ps1
 ```
 
-By default Windows may prevent execution of PS scripts. To fix that:
+By default Windows prevents execution of PS scripts. To change that:
 
 ```
 Set-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 ```
 
-Some Windows command-line only programs are needed (w.r.t. Interoperability w/ WSL).
-They need to be made available in `$PATH`. To do so:
+Some command-line utility programs are need for my daily workflows. They are
+either shipped directly with this repo (e.g. `fd`) or installed separately
+(e.g. `clang-format` with `LLVM.LLVM`).
+To make them available in `$PATH`:
 
 ```
 ./setpath.ps1
 ```
-
-
-## Automatically update `PATH` for `winget` CLI programs
-
-Install `WingetPathUpdater` first.
 
 
 ## Applications installed w/ `winget`
@@ -39,7 +36,7 @@ with the following output:
 # utils
 7-Zip 23.01 (x64)                          7zip.7zip                                     23.01                   winget
 CCleaner                                   Piriform.CCleaner                             6.16                    winget
-Sandboxie-Plus v1.10.5                     Sandboxie.Plus                                1.11.2                  winget
+#Sandboxie-Plus v1.10.5                     Sandboxie.Plus                                1.11.2                  winget
 #Speccy                                     Piriform.Speccy                               1.32                    winget
 #PowerToys (Preview) x64                    Microsoft.PowerToys                           0.73.0                  winget
 
@@ -61,7 +58,7 @@ XMake build utility (x64)                  Xmake-io.Xmake                       
 CMake                                      Kitware.CMake                                 3.27.6                  winget
 ####
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
-#Visual Studio Community 2022 (2)           Microsoft.VisualStudio.2022.Community         17.7.4                  winget
+#Visual Studio Community 2022               Microsoft.VisualStudio.2022.Community         17.7.4                  winget
 ####
 Microsoft Visual Studio Code (User)        Microsoft.VisualStudioCode                    1.82.2                  winget
 ####
@@ -84,11 +81,11 @@ Steam                                      Valve.Steam                          
 
 wsl --terminate NixOS
 wsl --shutdown
-wsl --export Ubuntu D:\WSL\backup/NixOS.tar  # can use '--vhd' flag
+wsl --export Ubuntu D:\WSL\backup\NixOS.tar  # can use '--vhd' flag
 # optional: unregister
 wsl --unregister NixOS
 
-# on a new computer
+# on a new computer then import
 wsl --import NixOS D:\WSL\backup\NixOS.tar
 # or
 wsl --import-in-place NixOS D:\WSL\NixOS\ext4.vhdx
@@ -98,16 +95,22 @@ wsl --setdefault NixOS
 
 ## Fonts
 
-`FiraCode Nerd Font Mono` is required. To install:
+`FiraCode Nerd Font Mono` is required. To install, go to project root of
+`nerd-fonts` then:
 
 ```
 ./install.ps1 FiraCode
 ```
 
 
-## PowerShell
+## PowerShell config
 
-Install `oh-my-posh` following instructions [here](https://github.com/jandedobbeleer/oh-my-posh).
+Install `oh-my-posh` with:
+
+```
+winget install JanDeDobbeleer.OhMyPosh -s winget
+```
+
 If VS code is installed, the PowerShell profile can be edited with:
 
 ```
