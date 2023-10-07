@@ -31,3 +31,13 @@
 	soft = "reset --soft"
 	st = "status -sb"
 	tlog = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
+
+[diff]
+ 	tool = vscode
+[difftool "vscode"]
+ 	cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
