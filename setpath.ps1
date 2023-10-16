@@ -35,7 +35,7 @@ AddTo-Path "C:\Program Files\Git\usr\bin"
 AddTo-Path "C:\Program Files\LLVM\bin"
 
 # for make
-AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
+#AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
 
 # print out
 Get-Path User
