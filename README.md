@@ -55,7 +55,6 @@ PowerShell 7-x64                           Microsoft.PowerShell                 
 Alacritty                                  Alacritty.Alacritty                           0.12.2                  winget
 Git                                        Git.Git                                       2.42.0.2                winget
 Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
-XMake build utility (x64)                  Xmake-io.Xmake                                2.7.9+20230515          winget
 CMake                                      Kitware.CMake                                 3.27.6                  winget
 ####
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
@@ -74,8 +73,32 @@ Microsoft Visual C++ 2015-2022 Redistribu  Microsoft.VCRedist.2015+.x64         
 Steam                                      Valve.Steam                                   2.10.91.91              winget
 ```
 
+### VS Code
 
-## Export/Import WSL2 image
+By default VS Code installed with `winget` doesn't have right-click context menu.
+To enable that, install VS Code the following way:
+
+```
+winget install Microsoft.VisualStudioCode --override '/SILENT /mergetasks="!runcode,addcontextmenufiles,addcontextmenufolders"'
+```
+
+
+### Build tools
+
+```
+winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
+winget install CMake
+```
+
+
+### `XMake`
+
+`XMake` should be installed separately because the winget source is not updated frequently.
+
+
+## WSL
+
+### Export/Import WSL2 image
 
 ```shell
 # if you use docker for windows, spin down any containers, then stop docker
@@ -91,6 +114,16 @@ wsl --import NixOS D:\WSL\backup\NixOS.tar
 # or
 wsl --import-in-place NixOS D:\WSL\NixOS\ext4.vhdx
 wsl --setdefault NixOS
+```
+
+### Increase available memory
+
+```
+wsl --shutdown
+
+
+Write-Output "[wsl2]
+memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
 
 
@@ -128,20 +161,15 @@ To set PowerShell 7 as the default shell in _Windows Terminal_:
 **Settings** > **Startup**, then choose **PowerShell** from the Default profile.
 
 
-## Add a US keyboard
+## Windows tweaks
 
+### Add a US keyboard
+
+This is only needed for Windows 11 home.
 See [here](https://www.bilibili.com/read/cv14827165/).
 
 
-## Install build tools
-
-```
-winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
-winget install CMake
-```
-
-
-## Take ownership of a folder
+### Take ownership of a folder
 
 First, add _Take Ownership_ to context menu with `EcMenu`, then right click to
 take ownership of `<foldername>`, finally:
@@ -151,14 +179,14 @@ takeown /f <foldername> /r /d y
 ```
 
 
-## Use old-style context menu
+### Use old-style context menu
 
 ```
 reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 ```
 
 
-## Manually change user folder locations
+### Manually change user folder locations
 
 Locations of folders like _Music_ can be changed via the following registry
 item:
