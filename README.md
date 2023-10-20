@@ -24,13 +24,15 @@ To make them available in `$PATH`:
 ```
 
 
-## Applications installed w/ `winget`
+## Install applications 
+
+Most applications are installed via `winget`. To list them:
 
 ```
 (winget list) -match ' winget$'
 ```
 
-with the following output:
+with the following output (comments are mine):
 
 ```shell
 # utils
@@ -82,7 +84,6 @@ To enable that, install VS Code the following way:
 winget install Microsoft.VisualStudioCode --override '/SILENT /mergetasks="!runcode,addcontextmenufiles,addcontextmenufolders"'
 ```
 
-
 ### Build tools
 
 ```
@@ -90,15 +91,24 @@ winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--pass
 winget install CMake
 ```
 
-
 ### `XMake`
 
-`XMake` should be installed separately because the winget source is not updated frequently.
+`XMake` should be installed separately because the winget source is not updated frequently. To do so:
+
+```
+Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
+```
 
 
 ## WSL
 
-### Export/Import WSL2 image
+### Install pre-released version
+
+```
+wsl --update --pre-release
+```
+
+### Export/Import image
 
 ```shell
 # if you use docker for windows, spin down any containers, then stop docker
@@ -114,6 +124,14 @@ wsl --import NixOS D:\WSL\backup\NixOS.tar
 # or
 wsl --import-in-place NixOS D:\WSL\NixOS\ext4.vhdx
 wsl --setdefault NixOS
+```
+
+### Automatically reduce disk image size
+
+This requires a pre-release version of `wsl` (as of 23-10-20):
+
+```
+wsl --manage NixOS --set-sparse true
 ```
 
 ### Increase available memory
@@ -168,7 +186,6 @@ To set PowerShell 7 as the default shell in _Windows Terminal_:
 This is only needed for Windows 11 home.
 See [here](https://www.bilibili.com/read/cv14827165/).
 
-
 ### Take ownership of a folder
 
 First, add _Take Ownership_ to context menu with `EcMenu`, then right click to
@@ -178,13 +195,11 @@ take ownership of `<foldername>`, finally:
 takeown /f <foldername> /r /d y
 ```
 
-
 ### Use old-style context menu
 
 ```
 reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 ```
-
 
 ### Manually change user folder locations
 
