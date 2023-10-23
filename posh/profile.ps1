@@ -14,5 +14,10 @@ Set-Alias -Name ls -Value lsColored
 
 If (Test-Path Alias:rm) { Remove-Item Alias:rm }
 
+# tab completion
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete 
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PsReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
 # initiate oh-my-posh 
 oh-my-posh init pwsh | Invoke-Expression
