@@ -16,6 +16,9 @@ Copy-Item -Force -Recurse './commands' -Destination $env:USERPROFILE
 Write-Output "copying tridactylrc for firefox to $($env:USERPROFILE)..."
 Copy-Item './firefox/.tridactylrc' -Destination $env:USERPROFILE
 
+Write-Output "copying WSL2 config to $($env:USERPROFILE)..."
+Copy-Item './wsl/.wslconfig' -Destination $env:USERPROFILE
+
 # PowerShell 5
 $poshpath = -join([Environment]::GetFolderPath("MyDocuments"), '\WindowsPowerShell')
 Write-Output "copying PowerShell config to $($poshpath)..."

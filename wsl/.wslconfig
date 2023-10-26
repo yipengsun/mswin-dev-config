@@ -1,0 +1,6 @@
+[wsl2]
+memory=28GB
+swap=32GB
+
+[experimental]
+sparseVhd=true
