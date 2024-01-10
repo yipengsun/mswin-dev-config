@@ -10,7 +10,7 @@ Write-Output "copying bash config to $($env:USERPROFILE)..."
 Copy-Item './bash/.bash_profile' -Destination $env:USERPROFILE
 Copy-Item './bash/.bashrc' -Destination $env:USERPROFILE
 
-Write-Output "copying Windows cli-only programs to $($env:USERPROFILE)..."
+Write-Output "copying Windows cli-only programs/jars to $($env:USERPROFILE)..."
 Copy-Item -Force -Recurse './commands' -Destination $env:USERPROFILE
 
 Write-Output "copying tridactylrc for firefox to $($env:USERPROFILE)..."
