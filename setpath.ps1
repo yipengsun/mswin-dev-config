@@ -43,6 +43,9 @@ param(
 $cmdpath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "commands")
 AddTo-Path $cmdpath
 
+# set java CLASSPATH
+AddTo-EnvVar $cmdpath "CLASSPATH"
+
 # for GNU coreutils on Windows
 AddTo-Path "C:\Program Files\Git\usr\bin"
 
@@ -52,9 +55,6 @@ AddTo-Path "C:\Program Files\LLVM\bin"
 # for make
 #AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
 
-# set java CLASSPATH
-AddTo-EnvVar $cmdpath CLASSPATH
-
 # print out
-Get-Path User
-Get-EnvVar User CLASSPATH
+Get-Path "User"
+Get-EnvVar "User" "CLASSPATH"
