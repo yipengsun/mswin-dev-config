@@ -14,10 +14,11 @@ param(
     [string]$Dir,
     [string]$Var
 )
-    if( !(Test-Path $Dir) ){
-        Write-warning "Supplied directory was not found!"
-        return
-    }
+    # NOTE: for now don't check if the dir exists or not.
+    # if( !(Test-Path $Dir) ){
+    #     Write-warning "Supplied directory was not found!"
+    #     return
+    # }
 
     $value = [Environment]::GetEnvironmentVariable($Var, "User")
     if( $value -notlike "*"+$Dir+"*" ){
@@ -44,7 +45,8 @@ $cmdpath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "com
 AddTo-Path $cmdpath
 
 # set java CLASSPATH
-AddTo-EnvVar $cmdpath "CLASSPATH"
+$classpath = -join($cmdpath, "\", "*")
+AddTo-EnvVar $classpath "CLASSPATH"
 
 # for GNU coreutils on Windows
 AddTo-Path "C:\Program Files\Git\usr\bin"
