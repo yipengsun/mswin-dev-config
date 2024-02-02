@@ -5,6 +5,9 @@
 [credential]
 	helper = C:/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 
+[core]
+	autocrlf = false
+
 [alias]
 	a = "add"
 	bD = "branch -D"
