@@ -1,3 +1,5 @@
 *.deskthemepack binary
 *.exe binary
 *.jar binary
+
+.bash* text eol=lf
