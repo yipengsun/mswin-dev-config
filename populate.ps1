@@ -1,6 +1,6 @@
 #!/usr/bin/env powershell.exe
 
-Write-Output "copying alacrity config to $($env:APPDATA)..."
+Write-Output "copying alacritty config to $($env:APPDATA)..."
 Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
 
 Write-Output "copying git config to $($env:USERPROFILE)..."
