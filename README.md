@@ -59,8 +59,10 @@ Git                                        Git.Git                              
 Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
 CMake                                      Kitware.CMake                                 3.27.6                  winget
 ####
+Rustup: the Rust toolchain installer       Rustlang.Rustup                               1.27.1                  winget
+Miniforge3 24.3.0-0                        CondaForge.Miniforge3                         24.3.0-0                winget
+####
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
-#Visual Studio Community 2022               Microsoft.VisualStudio.2022.Community         17.7.4                  winget
 ####
 Microsoft Visual Studio Code (User)        Microsoft.VisualStudioCode                    1.82.2                  winget
 ####
