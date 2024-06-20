@@ -54,6 +54,10 @@ AddTo-Path "C:\Program Files\Git\usr\bin"
 # for LLVM
 AddTo-Path "C:\Program Files\LLVM\bin"
 
+# for mamba
+$mambapath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "miniforge3", "\", "Scripts")
+AddTo-Path $mambapath
+
 # for make
 #AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
 
