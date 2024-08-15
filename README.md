@@ -24,6 +24,11 @@ To make them available in `$PATH`:
 ```
 
 
+## Download Windows
+
+**DO NOT** try to download Windows from [this site](https://massgrave.dev/)!
+
+
 ## Install applications 
 
 Most applications are installed via `winget`. To list them:
