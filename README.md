@@ -44,7 +44,6 @@ with the following output (comments are mine):
 7-Zip 23.01 (x64)                          7zip.7zip                                     23.01                   winget
 CCleaner                                   Piriform.CCleaner                             6.16                    winget
 #Sandboxie-Plus v1.10.5                     Sandboxie.Plus                                1.11.2                  winget
-#Speccy                                     Piriform.Speccy                               1.32                    winget
 #PowerToys (Preview) x64                    Microsoft.PowerToys                           0.73.0                  winget
 
 # applications
@@ -52,10 +51,7 @@ Dropbox                                    Dropbox.Dropbox                      
 Logseq                                     Logseq.Logseq                                 0.9.18                  winget
 Mozilla Firefox (x64 zh-CN)                Mozilla.Firefox                               117.0.1                 winget
 SumatraPDF                                 SumatraPDF.SumatraPDF                         3.4.6                   winget
-#WeLink                                     Huawei.Welink                                 7.32.7                  winget
 #Inkscape                                   Inkscape.Inkscape                             1.3.0                   winget
-#Logi Bolt                                  Logitech.LogiBolt                             1.2.6024.0              winget
-#Logitech Unifying                          Logitech.UnifyingSoftware                     2.52.33                 winget
 
 # dev
 PowerShell 7-x64                           Microsoft.PowerShell                          7.3.7.0                 winget
@@ -63,9 +59,10 @@ Alacritty                                  Alacritty.Alacritty                  
 Git                                        Git.Git                                       2.42.0.2                winget
 Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
 CMake                                      Kitware.CMake                                 3.27.6                  winget
+ninja                                      Ninja-build.Ninja                             1.12.1                  winget
 ####
 Rustup: the Rust toolchain installer       Rustlang.Rustup                               1.27.1                  winget
-Miniforge3 24.3.0-0                        CondaForge.Miniforge3                         24.3.0-0                winget
+uv                                         astral-sh.uv                                  0.4.0                   winget
 ####
 Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
 ####
