@@ -135,7 +135,24 @@ wsl --setdefault NixOS
 This requires a pre-release version of `wsl` (as of 23-10-20):
 
 ```
-wsl --manage NixOS --set-sparse true
+wsl --manage NixOS -s true
+```
+
+### Manually reduce disk image size
+
+```
+wsl --manage NixOS -s false
+
+diskpart
+
+select vdisk file="<distro-location>.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+
+exit
+
+wsl --manage NixOS -s true
 ```
 
 ### Increase available memory
@@ -148,7 +165,6 @@ Write-Output "[wsl2]
 memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
 
-
 ## Fonts
 
 `FiraCode Nerd Font Mono` is required. To install, go to project root of
@@ -157,7 +173,6 @@ memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
 ./install.ps1 FiraCode
 ```
-
 
 ## PowerShell config
 
