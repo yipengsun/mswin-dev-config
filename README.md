@@ -140,6 +140,14 @@ wsl --manage NixOS -s true
 
 ### Manually reduce disk image size
 
+Inside a WSL shell, run:
+
+```
+fstrim -a
+```
+
+then:
+
 ```
 wsl --manage NixOS -s false
 
@@ -149,7 +157,6 @@ select vdisk file="<distro-location>.vhdx"
 attach vdisk readonly
 compact vdisk
 detach vdisk
-
 exit
 
 wsl --manage NixOS -s true
