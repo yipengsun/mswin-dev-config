@@ -29,7 +29,7 @@ To make them available in `$PATH`:
 **DO NOT** try to download Windows from [this site](https://massgrave.dev/)!
 
 
-## Install applications 
+## Install applications
 
 Most applications are installed via `winget`. To list them:
 
@@ -41,42 +41,41 @@ with the following output (comments are mine):
 
 ```shell
 # utils
-7-Zip 23.01 (x64)                          7zip.7zip                                     23.01                   winget
-CCleaner                                   Piriform.CCleaner                             6.16                    winget
-#Sandboxie-Plus v1.10.5                     Sandboxie.Plus                                1.11.2                  winget
-#PowerToys (Preview) x64                    Microsoft.PowerToys                           0.73.0                  winget
+7zip.7zip
+Piriform.CCleaner
+#Sandboxie.Plus
 
 # applications
-Dropbox                                    Dropbox.Dropbox                               183.4.7058              winget
-Logseq                                     Logseq.Logseq                                 0.9.18                  winget
-Mozilla Firefox (x64 zh-CN)                Mozilla.Firefox                               117.0.1                 winget
-SumatraPDF                                 SumatraPDF.SumatraPDF                         3.4.6                   winget
-#Inkscape                                   Inkscape.Inkscape                             1.3.0                   winget
+Dropbox.Dropbox
+Logseq.Logseq
+Mozilla.Firefox
+SumatraPDF.SumatraPDF
+#Inkscape.Inkscape
 
 # dev
-PowerShell 7-x64                           Microsoft.PowerShell                          7.3.7.0                 winget
-Alacritty                                  Alacritty.Alacritty                           0.12.2                  winget
-Git                                        Git.Git                                       2.42.0.2                winget
-Oh My Posh version 18.10.1                 JanDeDobbeleer.OhMyPosh                       18.10.1                 winget
-CMake                                      Kitware.CMake                                 3.27.6                  winget
-ninja                                      Ninja-build.Ninja                             1.12.1                  winget
+Microsoft.PowerShell
+Alacritty.Alacritty
+Git.Git
+JanDeDobbeleer.OhMyPosh
+Kitware.CMake
+Ninja-build.Ninja
 ####
-Rustup: the Rust toolchain installer       Rustlang.Rustup                               1.27.1                  winget
-uv                                         astral-sh.uv                                  0.4.0                   winget
+Rustlang.Rustup
+astral-sh.uv
 ####
-Visual Studio                              Microsoft.VisualStudio.2022.BuildTools        17.7.4                  winget
+Microsoft.VisualStudio.2022.BuildTools
 ####
-Microsoft Visual Studio Code (User)        Microsoft.VisualStudioCode                    1.82.2                  winget
+Microsoft.VisualStudioCode
 ####
-Microsoft Visual C++ 2010  x64 Redistribu  Microsoft.VCRedist.2010.x64                   10.0.40219              winget
-Microsoft Visual C++ 2012 Redistributable  Microsoft.VCRedist.2012.x64                   11.0.61030.0            winget
-Microsoft Visual C++ 2012 Redistributable  Microsoft.VCRedist.2012.x86                   11.0.61030.0            winget
-Microsoft Visual C++ 2013 Redistributable  Microsoft.VCRedist.2013.x64                   12.0.40664.0            winget
-Microsoft Visual C++ 2013 Redistributable  Microsoft.VCRedist.2013.x86                   12.0.40664.0            winget
-Microsoft Visual C++ 2015-2022 Redistribu  Microsoft.VCRedist.2015+.x64                  14.38.32919.0           winget
+Microsoft.VCRedist.2010.x64
+Microsoft.VCRedist.2012.x64
+Microsoft.VCRedist.2012.x86
+Microsoft.VCRedist.2013.x64
+Microsoft.VCRedist.2013.x86
+Microsoft.VCRedist.2015+.x64
 
 # games
-Steam                                      Valve.Steam                                   2.10.91.91              winget
+Valve.Steam
 ```
 
 ### VS Code
@@ -97,7 +96,8 @@ winget install CMake
 
 ### `XMake`
 
-`XMake` should be installed separately because the winget source is not updated frequently. To do so:
+`XMake` should be installed separately because the winget source is not updated frequently.
+To do so:
 
 ```
 Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
@@ -167,10 +167,10 @@ wsl --manage NixOS -s true
 ```
 wsl --shutdown
 
-
 Write-Output "[wsl2]
 memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
+
 
 ## Fonts
 
@@ -180,6 +180,7 @@ memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
 ./install.ps1 FiraCode
 ```
+
 
 ## PowerShell config
 
@@ -198,7 +199,7 @@ code $PROFILE
 It is recommended to upgrade to PowerShell 7. To do so:
 
 ```
-winget install --id Microsoft.Powershell --source winget
+winget install --id Microsoft.Powershell -s winget
 ```
 
 To set PowerShell 7 as the default shell in _Windows Terminal_:
@@ -214,12 +215,9 @@ See [here](https://www.bilibili.com/read/cv14827165/).
 
 ### Take ownership of a folder
 
-First, add _Take Ownership_ to context menu with `EcMenu`, then right click to
-take ownership of `<foldername>`, finally:
-
-```
-takeown /f <foldername> /r /d y
-```
+1. Add _Take Ownership_ to context menu with `EcMenu`
+2. Right click to take ownership of `<foldername>`
+3. `takeown /f <foldername> /r /d y`
 
 ### Use old-style context menu
 
@@ -229,8 +227,7 @@ reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\
 
 ### Manually change user folder locations
 
-Locations of folders like _Music_ can be changed via the following registry
-item:
+Locations of folders like _Music_ can be changed via the following registry item:
 
 ```
 HKEY_CURRENT_USER \ Software \ Microsoft \ Windows \ CurrentVersion \ Explorer \ User Shell Folders
