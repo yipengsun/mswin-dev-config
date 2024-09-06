@@ -1,13 +1,11 @@
 #!/usr/bin/env powershell.exe
 
-# retired
-#Write-Output "copying alacritty config to $($env:APPDATA)..."
-#Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
-
 # generic config path
 $configPath = -join($env:USERPROFILE, '/.config')
 if (!(Test-Path -path $configPath)) {New-Item $configPath -Type Directory}
 
+
+# misc config
 Write-Output "copying wezterm config to $($configPath)..."
 Copy-Item -Force -Recurse './wezterm' -Destination $configPath
 
@@ -27,16 +25,21 @@ Copy-Item './firefox/.tridactylrc' -Destination $env:USERPROFILE
 Write-Output "copying WSL2 config to $($env:USERPROFILE)..."
 Copy-Item './wsl/.wslconfig' -Destination $env:USERPROFILE
 
+#Write-Output "copying alacritty config to $($env:APPDATA)..."
+#Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
+
+
 # PowerShell 5
-$poshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
-Write-Output "copying PowerShell config to $($poshPath)..."
-if (!(Test-Path -path $poshPath)) {New-Item $poshPath -Type Directory}
-Copy-Item './pwsh/profile.ps1' -Destination $poshPath
+$pwshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
+Write-Output "copying PowerShell config to $($pwshPath)..."
+if (!(Test-Path -path $pwshPath)) {New-Item $pwshPath -Type Directory}
+Copy-Item './pwsh/profile.ps1' -Destination $pwshPath
 
 # PowerShell 7
-$posh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
-if (!(Test-Path -path $posh7Path)) {New-Item $posh7Path -Type Directory}
-Copy-Item './pwsh/profile.ps1' -Destination $posh7Path
+$pwsh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
+if (!(Test-Path -path $pwsh7Path)) {New-Item $pwsh7Path -Type Directory}
+Copy-Item './pwsh/profile.ps1' -Destination $pwsh7Path
+
 
 # uutils symblinks
 Write-Output "populating uutil symblinks..."

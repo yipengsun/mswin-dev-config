@@ -65,9 +65,9 @@ Microsoft.PowerShell
 wez.wezterm
 Git.Git
 JanDeDobbeleer.OhMyPosh
+####
 Kitware.CMake
 Ninja-build.Ninja
-####
 Rustlang.Rustup
 astral-sh.uv
 JohnMacFarlane.Pandoc
