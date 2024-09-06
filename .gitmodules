@@ -1,0 +1,4 @@
+[submodule "submodules/Win11Debloat"]
+	path = submodules/Win11Debloat
+	url = git@github.com:Raphire/Win11Debloat.git
+  ignore = dirty

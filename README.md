@@ -25,39 +25,49 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 # set $PATH
 .\tools\setpath.ps1
+
+
+# required: install 'FiraCode Nerd Font Mono'
+oh-my-posh font install FiraCode
+
+
+# optional: de-bloat to restore a win10-like ui
+cd submodules\Win11Debloat
+git submodule update --init .
+Run.bat
 ```
 
 
-## Download Windows
+## Tips and tricks
+
+### Download Windows
 
 **DO NOT** try to download Windows from [this site](https://massgrave.dev/)!
 
 
-## Install applications
+### List winget-installed applications
 
-Most applications are installed via `winget`. To list them:
-
-```
+```powershell
 (winget list) -match ' winget$'
 ```
 
 
-## WSL
+### WSL
 
-### Install pre-released version
+#### Install pre-released version
 
-```
+```powershell
 wsl --update --pre-release
 ```
 
-### Export/Import image
+#### Export/Import image
 
-```shell
+```powershell
 # if you use docker for windows, spin down any containers, then stop docker
 
 wsl --terminate NixOS
 wsl --shutdown
-wsl --export Ubuntu D:\WSL\backup\NixOS.tar  # can use '--vhd' flag
+wsl --export NixOS D:\WSL\backup\NixOS.tar  # can use '--vhd' flag
 # optional: unregister
 wsl --unregister NixOS
 
@@ -68,41 +78,40 @@ wsl --import-in-place NixOS D:\WSL\NixOS\ext4.vhdx
 wsl --setdefault NixOS
 ```
 
-### Automatically reduce disk image size
+#### Automatically reduce disk image size
 
-This requires a pre-release version of `wsl` (as of 23-10-20):
-
-```
+```powershell
 wsl --manage NixOS -s true
 ```
 
-### Manually reduce disk image size
+#### Manually reduce disk image size
 
 Inside a WSL shell, run:
 
-```
+```shell
 fstrim -a
 ```
 
 then:
 
-```
+```powershell
 wsl --manage NixOS -s false
 
 diskpart
-
+# inside diskpart prompt
 select vdisk file="<distro-location>.vhdx"
 attach vdisk readonly
 compact vdisk
 detach vdisk
 exit
+# back to powershell
 
 wsl --manage NixOS -s true
 ```
 
-### Increase available memory
+#### Increase available memory
 
-```
+```powershell
 wsl --shutdown
 
 Write-Output "[wsl2]
@@ -110,55 +119,39 @@ memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 ```
 
 
-## Fonts
+### PowerShell
 
-`FiraCode Nerd Font Mono` is required. To install, go to project root of
-`nerd-fonts` then:
-
-```
-./install.ps1 FiraCode
-```
-
-
-## PowerShell config
-
-
-If VS code is installed, the PowerShell profile can be edited with:
+#### Use VS code to edit PowerShell profile
 
 ```
 code $PROFILE
 ```
 
-To set PowerShell 7 as the default shell in _Windows Terminal_:
+#### Set PowerShell 7 as the default shell in _Windows Terminal_
+
 **Settings** > **Startup**, then choose **PowerShell** from the Default profile.
 
 
-## Windows tweaks
+### Windows tweaks
 
-### General
-
-Use [this script](https://github.com/Raphire/Win11Debloat) to debloat and restore a Windows-10 like UI
-
-### Use old-style context menu
-
-The script above can also do this
+#### Use old-style context menu
 
 ```
 reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 ```
 
-### Add a US keyboard
+#### Add a US keyboard
 
 This is only needed for Windows 11 home.
 See [here](https://www.bilibili.com/read/cv14827165/).
 
-### Take ownership of a folder
+#### Take ownership of a folder
 
 1. Add _Take Ownership_ to context menu with `EcMenu`
 2. Right click to take ownership of `<foldername>`
 3. `takeown /f <foldername> /r /d y`
 
-### Manually change user folder locations
+#### Manually change user folder locations
 
 Locations of folders like _Music_ can be changed via the following registry item:
 
