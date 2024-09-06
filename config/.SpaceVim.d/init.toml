@@ -1,4 +1,7 @@
 [options]
+    bootstrap_before = 'custom#before'
+    bootstrap_after = 'custom#after'
+
     colorscheme = "dracula"
     enable_guicolors = true
 
@@ -8,6 +11,7 @@
     # 3: 1 -> ¹
     # 4: 1 -> 1
     buffer_index_type = 4
+    windows_index_type = 4
 
     enable_tabline_filetype_icon = false
 
@@ -18,7 +22,10 @@
 [[layers]]
     name = "autocomplete"
     auto-completion-return-key-behavior = "complete"
-    auto-completion-tab-key-behavior = "cycle"
+    auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
     name = "colorscheme"
+
+[[layers]]
+    name = "ui"
