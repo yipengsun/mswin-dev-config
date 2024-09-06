@@ -2,3 +2,6 @@
 	path = submodules/Win11Debloat
 	url = git@github.com:Raphire/Win11Debloat.git
   ignore = dirty
+[submodule "submodules/SpaceVim"]
+	path = submodules/SpaceVim
+	url = git@github.com:SpaceVim/SpaceVim.git

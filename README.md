@@ -21,14 +21,14 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 # install winget packages
 .\tools\install-winget-pkgs.ps1
 
+# install 'FiraCode Nerd Font Mono'
+oh-my-posh font install FiraCode
+
 # populate config and portable cli commands, e.g. fd
 .\tools\populate.ps1
 
 # set $PATH
 .\tools\setpath.ps1
-
-# install 'FiraCode Nerd Font Mono'
-oh-my-posh font install FiraCode
 
 
 # optional: de-bloat to restore a win10-like ui
