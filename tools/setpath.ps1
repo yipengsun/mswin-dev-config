@@ -38,27 +38,27 @@ param(
     AddTo-EnvVar $Dir "PATH"
 }
 
-# set PATH
-$cmdPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "commands")
-AddTo-Path $cmdPath
 
-# set java CLASSPATH
-$classPath = -join($cmdPath, "\", "*")
-AddTo-EnvVar $classPath "CLASSPATH"
-
-# for GNU coreutils on Windows
-#AddTo-Path "C:\Program Files\Git\usr\bin"
+$cmdDir = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\commands")
+AddTo-Path $cmdDir
 
 # for LLVM
 AddTo-Path "C:\Program Files\LLVM\bin"
 
-# for mamba
-#$mambaPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "miniforge3", "\", "Scripts")
-#AddTo-Path $mambaPath
+# for GNU coreutils on Windows
+#AddTo-Path "C:\Program Files\Git\usr\bin"
 
 # for make
 #AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
 
-# print out
+# for mamba
+#$mambaPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\miniforge3\Scripts")
+#AddTo-Path $mambaPath
+
+
+# set java CLASSPATH
+#AddTo-EnvVar (-join($cmdDir, "\*")) "CLASSPATH"
+
+
 Get-Path "User"
-Get-EnvVar "User" "CLASSPATH"
+#Get-EnvVar "User" "CLASSPATH"
