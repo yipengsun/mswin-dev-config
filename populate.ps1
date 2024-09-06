@@ -31,12 +31,12 @@ Copy-Item './wsl/.wslconfig' -Destination $env:USERPROFILE
 $poshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
 Write-Output "copying PowerShell config to $($poshPath)..."
 if (!(Test-Path -path $poshPath)) {New-Item $poshPath -Type Directory}
-Copy-Item './posh/profile.ps1' -Destination $poshPath
+Copy-Item './pwsh/profile.ps1' -Destination $poshPath
 
 # PowerShell 7
 $posh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
 if (!(Test-Path -path $posh7Path)) {New-Item $posh7Path -Type Directory}
-Copy-Item './posh/profile.ps1' -Destination $posh7Path
+Copy-Item './pwsh/profile.ps1' -Destination $posh7Path
 
 # uutils symblinks
 Write-Output "populating uutil symblinks..."
