@@ -17,6 +17,7 @@ Dev config on Microsoft Windows.
 #Set-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
+
 # install winget packages
 .\tools\install-winget-pkgs.ps1
 
@@ -26,8 +27,7 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 # set $PATH
 .\tools\setpath.ps1
 
-
-# required: install 'FiraCode Nerd Font Mono'
+# install 'FiraCode Nerd Font Mono'
 oh-my-posh font install FiraCode
 
 
@@ -35,6 +35,9 @@ oh-my-posh font install FiraCode
 cd submodules\Win11Debloat
 git submodule update --init .
 Run.bat
+
+
+# optional: configure neovim
 ```
 
 
