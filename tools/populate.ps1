@@ -39,24 +39,22 @@ CopyTo-Wrapper (-join($localConfigDir, '\wsl\.wslconfig')) $env:USERPROFILE
 #CopyTo-Wrapper (-join($localConfigDir, '\alacritty')) $env:USERPROFILE
 
 
-# PowerShell
-Write-Output "copying PowerShell config to $($pwshPath)..."
+Write-Host "Copy PowerShell config..." -ForegroundColor Green
 
-$pwshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
+$pwshPath = -join([Environment]::GetFolderPath("MyDocuments"), '\WindowsPowerShell')
 if (!(Test-Path -path $pwshPath)) {
     New-Item $pwshPath -Type Directory
 }
-Copy-Item './pwsh/profile.ps1' -Destination $pwshPath
+CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwshPath
 
-$pwsh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
+$pwsh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '\PowerShell')
 if (!(Test-Path -path $pwsh7Path)) {
     New-Item $pwsh7Path -Type Directory
 }
-Copy-Item './pwsh/profile.ps1' -Destination $pwsh7Path
+CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwsh7Path
 
 
-# uutils symblinks
-Write-Output "populating uutil symblinks..."
+Write-Host "Populate uutil symblinks..." -ForegroundColor Green
 
 $utils = "512sum",
 "arch",
@@ -83,10 +81,10 @@ $utils = "512sum",
 "wc", "whoami",
 "yes"
 
-$commandPath = -join($env:USERPROFILE, "/commands")
-$oldBin = -join($commandPath, "/coreutils.exe")
+$commandPath = -join($env:USERPROFILE, "\commands")
+$oldBin = -join($commandPath, "\coreutils.exe")
 Foreach ($util in $utils) {
-    $newBin = -join($commandPath, "/", $util, ".exe")
+    $newBin = -join($commandPath, "\", $util, ".exe")
     if (!(Test-Path -path $newBin)) {
         New-Item -ItemType SymbolicLink -Path $newBin -Target $oldBin
     }
