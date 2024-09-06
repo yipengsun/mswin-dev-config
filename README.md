@@ -43,18 +43,26 @@ with the following output (comments are mine):
 # utils
 7zip.7zip
 Piriform.CCleaner
+jazzdelightsme.WingetPathUpdater
 #Sandboxie.Plus
 
 # applications
+7zip.7zip
 Dropbox.Dropbox
 Logseq.Logseq
 Mozilla.Firefox
 SumatraPDF.SumatraPDF
+mpv.net
+#HandBrake.HandBrake
+#KDE.Kdenlive
 #Inkscape.Inkscape
+#Apple.iTunes
+#Xmind.Xmind
 
 # dev
 Microsoft.PowerShell
-Alacritty.Alacritty
+#Alacritty.Alacritty
+wez.wezterm
 Git.Git
 JanDeDobbeleer.OhMyPosh
 Kitware.CMake
@@ -62,6 +70,7 @@ Ninja-build.Ninja
 ####
 Rustlang.Rustup
 astral-sh.uv
+JohnMacFarlane.Pandoc
 ####
 Microsoft.VisualStudio.2022.BuildTools
 ####

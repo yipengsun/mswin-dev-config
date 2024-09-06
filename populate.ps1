@@ -1,7 +1,15 @@
 #!/usr/bin/env powershell.exe
 
-Write-Output "copying alacritty config to $($env:APPDATA)..."
-Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
+# retired
+#Write-Output "copying alacritty config to $($env:APPDATA)..."
+#Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
+
+# generic config path
+$configPath = -join($env:USERPROFILE, '/.config')
+if (!(Test-Path -path $configPath)) {New-Item $configPath -Type Directory}
+
+Write-Output "copying wezterm config to $($configPath)..."
+Copy-Item -Force -Recurse './wezterm' -Destination $configPath
 
 Write-Output "copying git config to $($env:USERPROFILE)..."
 Copy-Item './git/.gitconfig' -Destination $env:USERPROFILE
@@ -20,12 +28,12 @@ Write-Output "copying WSL2 config to $($env:USERPROFILE)..."
 Copy-Item './wsl/.wslconfig' -Destination $env:USERPROFILE
 
 # PowerShell 5
-$poshpath = -join([Environment]::GetFolderPath("MyDocuments"), '\WindowsPowerShell')
-Write-Output "copying PowerShell config to $($poshpath)..."
-if (!(Test-Path -path $poshpath)) {New-Item $poshpath -Type Directory}
-Copy-Item './posh/profile.ps1' -Destination $poshpath
+$poshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
+Write-Output "copying PowerShell config to $($poshPath)..."
+if (!(Test-Path -path $poshPath)) {New-Item $poshPath -Type Directory}
+Copy-Item './posh/profile.ps1' -Destination $poshPath
 
 # PowerShell 7
-$posh7path = -join([Environment]::GetFolderPath("MyDocuments"), '\PowerShell')
-if (!(Test-Path -path $posh7path)) {New-Item $posh7path -Type Directory}
-Copy-Item './posh/profile.ps1' -Destination $posh7path
+$posh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
+if (!(Test-Path -path $posh7Path)) {New-Item $posh7Path -Type Directory}
+Copy-Item './posh/profile.ps1' -Destination $posh7Path
