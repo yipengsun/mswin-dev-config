@@ -13,8 +13,8 @@ wezterm.on("gui-startup", function()
   window:gui_window():maximize()
 end)
 
--- use power shell
-config.default_prog = { 'powershell.exe' }
+-- use power shell 7
+config.default_prog = { 'pwsh.exe' }
 
 
 ------------------
