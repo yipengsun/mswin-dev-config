@@ -28,7 +28,7 @@ config.keys = {
   -- CTRL-SHIFT c
   -- copy to clipboard
   {
-    key = 'C',
+    key = 'c',
     mods = 'CTRL|SHIFT',
     action = act.CopyTo 'ClipboardAndPrimarySelection'
   },
@@ -36,18 +36,18 @@ config.keys = {
   -- CTRL-SHIFT v
   -- paste from clibboard
   {
-    key = 'V',
+    key = 'v',
     mods = 'CTRL|SHIFT',
     action = act.PasteFrom 'PrimarySelection'
   },
 
-  -- CTRL-SHIFT L
+  -- CTRL-SHIFT l
   -- activates the debug overlay
-  { key = 'L', mods = 'CTRL|SHIFT', action = act.ShowDebugOverlay },
+  { key = 'l', mods = 'CTRL|SHIFT', action = act.ShowDebugOverlay },
 
-  -- CTRL-SHIFT R
+  -- CTRL-SHIFT r
   -- reload
-  { key = 'R', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
+  { key = 'r', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
 
   -- CTRL-ALT c
   -- create a new tab in the same domain as the current pane
