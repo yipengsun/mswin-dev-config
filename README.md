@@ -51,6 +51,14 @@ Run.bat
 (winget list) -match ' winget$'
 ```
 
+### Install FiraCode manually
+
+```powershell
+git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+.\install.ps1 FiraCode
+```
+
 
 ### WSL
 
