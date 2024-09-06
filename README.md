@@ -217,6 +217,18 @@ To set PowerShell 7 as the default shell in _Windows Terminal_:
 
 ## Windows tweaks
 
+### General
+
+Use [this script](https://github.com/Raphire/Win11Debloat) to debloat and restore a Windows-10 like UI
+
+### Use old-style context menu
+
+The script above can also do this
+
+```
+reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+```
+
 ### Add a US keyboard
 
 This is only needed for Windows 11 home.
@@ -227,12 +239,6 @@ See [here](https://www.bilibili.com/read/cv14827165/).
 1. Add _Take Ownership_ to context menu with `EcMenu`
 2. Right click to take ownership of `<foldername>`
 3. `takeown /f <foldername> /r /d y`
-
-### Use old-style context menu
-
-```
-reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
-```
 
 ### Manually change user folder locations
 
