@@ -1,5 +1,3 @@
-#!/usr/bin/env powershell.exe
-
 function Get-EnvVar{
 param(
     [string]$User,

@@ -1,43 +1,53 @@
-# generic config path
-$configPath = -join($env:USERPROFILE, '/.config')
-if (!(Test-Path -path $configPath)) {
-    New-Item $configPath -Type Directory
+$scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$parentDir = Split-Path -Path $scriptDir -Parent
+
+$configDir = -join($env:USERPROFILE, '\.config')
+if (!(Test-Path -path $configDir)) {
+    New-Item $configDir -Type Directory
 }
 
 
-# misc config
-Write-Output "copy wezterm config to $($configPath)..."
-Copy-Item -Force -Recurse './wezterm' -Destination $configPath
-
-Write-Output "copy git config to $($env:USERPROFILE)..."
-Copy-Item './git/.gitconfig' -Destination $env:USERPROFILE
-
-Write-Output "copy bash config to $($env:USERPROFILE)..."
-Copy-Item './bash/.bash_profile' -Destination $env:USERPROFILE
-Copy-Item './bash/.bashrc' -Destination $env:USERPROFILE
-
-Write-Output "copy Windows cli commands/jars to $($env:USERPROFILE)..."
-Copy-Item -Force -Recurse './commands' -Destination $env:USERPROFILE
-
-Write-Output "copy tridactylrc for firefox to $($env:USERPROFILE)..."
-Copy-Item './firefox/.tridactylrc' -Destination $env:USERPROFILE
-
-Write-Output "copy WSL2 config to $($env:USERPROFILE)..."
-Copy-Item './wsl/.wslconfig' -Destination $env:USERPROFILE
-
-#Write-Output "copying alacritty config to $($env:APPDATA)..."
-#Copy-Item -Force -Recurse './alacritty' -Destination $env:APPDATA
+# helper functions
+function CopyTo-Wrapper {
+param(
+    [string]$Source,
+    [string]$Destination
+)
+    Write-Output "copy $Source to $Destination..."
+    Copy-Item -Force -Recurse $Source $Destination
+}
 
 
-# PowerShell 5
-$pwshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
+Write-Host "Copy cli commands..." -ForegroundColor Green
+CopyTo-Wrapper (-join($parentDir, '\commands')) $env:USERPROFILE
+
+
+Write-Host "Copy configuration files..." -ForegroundColor Green
+$localConfigDir = -join($parentDir, '\config')
+
+CopyTo-Wrapper (-join($localConfigDir, '\wezterm')) $configDir
+
+CopyTo-Wrapper (-join($localConfigDir, '\git\.gitconfig')) $env:USERPROFILE
+
+CopyTo-Wrapper (-join($localConfigDir, '\bash\.bash_profile')) $env:USERPROFILE
+CopyTo-Wrapper (-join($localConfigDir, '\bash\.bashrc')) $env:USERPROFILE
+
+CopyTo-Wrapper (-join($localConfigDir, '\firefox\.tridactylrc')) $env:USERPROFILE
+
+CopyTo-Wrapper (-join($localConfigDir, '\wsl\.wslconfig')) $env:USERPROFILE
+
+#CopyTo-Wrapper (-join($localConfigDir, '\alacritty')) $env:USERPROFILE
+
+
+# PowerShell
 Write-Output "copying PowerShell config to $($pwshPath)..."
+
+$pwshPath = -join([Environment]::GetFolderPath("MyDocuments"), '/WindowsPowerShell')
 if (!(Test-Path -path $pwshPath)) {
     New-Item $pwshPath -Type Directory
 }
 Copy-Item './pwsh/profile.ps1' -Destination $pwshPath
 
-# PowerShell 7
 $pwsh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '/PowerShell')
 if (!(Test-Path -path $pwsh7Path)) {
     New-Item $pwsh7Path -Type Directory
@@ -47,6 +57,7 @@ Copy-Item './pwsh/profile.ps1' -Destination $pwsh7Path
 
 # uutils symblinks
 Write-Output "populating uutil symblinks..."
+
 $utils = "512sum",
 "arch",
 "b2sum", "b3sum", "base32", "base64", "basename", "basenc",
