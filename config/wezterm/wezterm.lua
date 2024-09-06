@@ -16,6 +16,8 @@ end)
 -- use power shell 7
 config.default_prog = { 'pwsh.exe' }
 
+config.scrollback_lines = 3000
+
 
 ------------------
 -- key bindings --
@@ -77,20 +79,78 @@ config.keys = {
   },
 
   -- CTRL-ALT k
+  -- kill current pane
   {
     key = 'k',
     mods = 'CTRL|ALT',
     action = act.CloseCurrentPane { confirm = true },
   },
+
+  -- CTRL-SHIFT n
+  -- open a new window in cwd, not working on windows
+  {
+    key = 'n',
+    mods = 'CTRL|SHIFT',
+    action = act.SpawnWindow,
+  },
+
+  -- CTRL-SHIFT f
+  -- open search overlay
+  {
+    key = 'f',
+    mods = 'CTRL|SHIFT',
+    action = act.Search { CaseSensitiveString = '' },
+  },
+
+  -- CTRL Tab
+  -- jump to next tab
+  {
+    key = 'Tab',
+    mods = 'CTRL',
+    action = act.ActivateTabRelative(1),
+  },
+
+  -- CTRL-SHIFT Tab
+  -- jump to previous tab
+  {
+    key = 'Tab',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivateTabRelative(-1),
+  },
+
+  -- SHIFT PageUp
+  -- scroll up 1 page
+  {
+    key = 'PageUp',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(-1),
+  },
+
+  -- SHIFT PageDown
+  -- scroll down 1 page
+  {
+    key = 'PageDown',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(1),
+  },
 }
+
+-- switch between tabs
+for i = 1, 9 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = act.ActivateTab(i - 1),
+  })
+end
 
 
 config.mouse_bindings = {
 	-- CTRL left-click
   -- open url under the mouse cursor
 	{
-		event = { Up = { streak = 1, button = "Left" } },
-		mods = "CTRL",
+		event = { Up = { streak = 1, button = 'Left' } },
+		mods = 'CTRL',
 		action = act.OpenLinkAtMouseCursor,
 	},
 }
@@ -101,7 +161,7 @@ config.mouse_bindings = {
 --------
 
 -- font
-config.font = wezterm.font "FiraCode Nerd Font Mono"
+config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 12
 
 -- color theme
