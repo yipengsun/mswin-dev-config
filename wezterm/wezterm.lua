@@ -25,13 +25,29 @@ config.disable_default_key_bindings = true
 
 local act = wezterm.action
 config.keys = {
-  -- CTRL-SHIFT-L
-  -- activates the debug overlay
-  { key = 'L', mods = 'CTRL', action = act.ShowDebugOverlay },
+  -- CTRL-SHIFT c
+  -- copy to clipboard
+  {
+    key = 'C',
+    mods = 'CTRL|SHIFT',
+    action = act.CopyTo 'ClipboardAndPrimarySelection'
+  },
 
-  -- CTRL-SHIFT-r
+  -- CTRL-SHIFT v
+  -- paste from clibboard
+  {
+    key = 'V',
+    mods = 'CTRL|SHIFT',
+    action = act.PasteFrom 'PrimarySelection'
+  },
+
+  -- CTRL-SHIFT L
+  -- activates the debug overlay
+  { key = 'L', mods = 'CTRL|SHIFT', action = act.ShowDebugOverlay },
+
+  -- CTRL-SHIFT R
   -- reload
-  { key = 'R', mods = 'CTRL', action = act.ReloadConfiguration },
+  { key = 'R', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
 
   -- CTRL-ALT c
   -- create a new tab in the same domain as the current pane
