@@ -37,56 +37,6 @@ Most applications are installed via `winget`. To list them:
 (winget list) -match ' winget$'
 ```
 
-with the following output (comments are mine):
-
-```shell
-# utils
-7zip.7zip
-Piriform.CCleaner
-jazzdelightsme.WingetPathUpdater
-#Sandboxie.Plus
-
-# applications
-7zip.7zip
-Dropbox.Dropbox
-Logseq.Logseq
-Mozilla.Firefox
-SumatraPDF.SumatraPDF
-mpv.net
-#HandBrake.HandBrake
-#KDE.Kdenlive
-#Inkscape.Inkscape
-#Apple.iTunes
-#Xmind.Xmind
-
-# dev
-Microsoft.PowerShell
-#Alacritty.Alacritty
-wez.wezterm
-Git.Git
-JanDeDobbeleer.OhMyPosh
-####
-Kitware.CMake
-Ninja-build.Ninja
-Rustlang.Rustup
-astral-sh.uv
-JohnMacFarlane.Pandoc
-####
-Microsoft.VisualStudio.2022.BuildTools
-####
-Microsoft.VisualStudioCode
-####
-Microsoft.VCRedist.2010.x64
-Microsoft.VCRedist.2012.x64
-Microsoft.VCRedist.2012.x86
-Microsoft.VCRedist.2013.x64
-Microsoft.VCRedist.2013.x86
-Microsoft.VCRedist.2015+.x64
-
-# games
-Valve.Steam
-```
-
 ### VS Code
 
 By default VS Code installed with `winget` doesn't have right-click context menu.

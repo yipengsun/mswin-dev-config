@@ -56,7 +56,8 @@ CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwsh7Path
 
 Write-Host "Populate uutil symblinks..." -ForegroundColor Green
 
-$utils = "512sum",
+$utils =
+"512sum",
 "arch",
 "b2sum", "b3sum", "base32", "base64", "basename", "basenc",
 "cat", "cksum", "comm", "cp", "csplit", "cut",
