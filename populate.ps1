@@ -53,5 +53,7 @@ $commandPath = -join($env:USERPROFILE, "/commands")
 $oldBin = -join($commandPath, "/coreutils.exe")
 Foreach ($util in $utils) {
     $newBin = -join($commandPath, "/", $util, ".exe")
-    New-Item -ItemType SymbolicLink -Path $newBin -Target $oldBin
+    if (!(Test-Path -path $newBin)) {
+        New-Item -ItemType SymbolicLink -Path $newBin -Target $oldBin
+    }
 }
