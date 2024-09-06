@@ -37,31 +37,6 @@ Most applications are installed via `winget`. To list them:
 (winget list) -match ' winget$'
 ```
 
-### VS Code
-
-By default VS Code installed with `winget` doesn't have right-click context menu.
-To enable that, install VS Code the following way:
-
-```
-winget install Microsoft.VisualStudioCode --override '/SILENT /mergetasks="!runcode,addcontextmenufiles,addcontextmenufolders"'
-```
-
-### Build tools
-
-```
-winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
-winget install CMake
-```
-
-### `XMake`
-
-`XMake` should be installed separately because the winget source is not updated frequently.
-To do so:
-
-```
-Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
-```
-
 
 ## WSL
 

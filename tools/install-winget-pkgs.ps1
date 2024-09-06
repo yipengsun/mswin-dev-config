@@ -1,4 +1,3 @@
-# helper functions
 function WinGet-Install {
 param(
     [string]$Package
@@ -33,6 +32,8 @@ $pkgsApplications =
 'SumatraPDF.SumatraPDF',
 'mpv.net',
 'Valve.Steam'
+#'Tencent.WeChat',
+#'Tencent.WeCom',
 #'Sandboxie.Plus',
 #'Apple.iTunes',
 #'HandBrake.HandBrake',
@@ -44,9 +45,9 @@ $pkgsDevTools =
 'Microsoft.PowerShell',
 #Alacritty.Alacritty
 'wez.wezterm',
-'Git.Git',
 'JanDeDobbeleer.OhMyPosh',
 ####
+'Git.Git',
 'Kitware.CMake',
 'Ninja-build.Ninja',
 'Rustlang.Rustup',
@@ -61,13 +62,21 @@ $pkgsDevTools =
 'Microsoft.VCRedist.2013.x86',
 'Microsoft.VCRedist.2015+.x64'
 
-####
-#Microsoft.VisualStudio.2022.BuildTools
-####
-#Microsoft.VisualStudioCode
-####
-
 
 WinGet-Install-All $pkgsUtils
 WinGet-Install-All $pkgsApplications
 WinGet-Install-All $pkgsDevTools
+
+
+# vscode
+winget install -e --id Microsoft.VisualStudioCode `
+    -s winget `
+    --no-upgrade `
+    --override '/SILENT /mergetasks="!runcode,addcontextmenufiles,addcontextmenufolders"'
+
+
+# msvc
+winget install -e --id Microsoft.VisualStudio.2022.BuildTools `
+    -s winget `
+    --no-upgrade `
+    --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
