@@ -79,4 +79,4 @@ winget install -e --id Microsoft.VisualStudioCode `
 winget install -e --id Microsoft.VisualStudio.2022.BuildTools `
     -s winget `
     --no-upgrade `
-    --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended"
+    --override '--passive --wait --add Microsoft.VisualStudio.Workload.VCTools;includeRecommended'

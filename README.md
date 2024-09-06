@@ -1,26 +1,30 @@
 # mswin-dev-config
+
 Dev config on Microsoft Windows.
 
-Copy config via:
 
-```
-./populate.ps1
-```
+## Before you proceed
 
-By default Windows prevents execution of PS scripts. To change that:
+1. Make sure `winget` is available
+2. Use `winget` to install `Git.Git`
+3. Clone this repo, forget about submodules for now
 
-```
-Set-ExecutionPolicy Unrestricted
+
+## Usage
+
+```powershell
+# windows prevents script execution by default. to fix that:
+#Set-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-```
 
-Some command-line utility programs are need for my daily workflows. They are
-either shipped directly with this repo (e.g. `fd`) or installed separately
-(e.g. `clang-format` with `LLVM.LLVM`).
-To make them available in `$PATH`:
+# install winget packages
+.\tools\install-winget-pkgs.ps1
 
-```
-./setpath.ps1
+# populate config and portable cli commands, e.g. fd
+.\tools\populate.ps1
+
+# set $PATH
+.\tools\setpath.ps1
 ```
 
 
@@ -118,22 +122,11 @@ memory=28GB" >> "${env:USERPROFILE}\.wslconfig"
 
 ## PowerShell config
 
-Install `oh-my-posh` with:
-
-```
-winget install JanDeDobbeleer.OhMyPosh -s winget
-```
 
 If VS code is installed, the PowerShell profile can be edited with:
 
 ```
 code $PROFILE
-```
-
-It is recommended to upgrade to PowerShell 7. To do so:
-
-```
-winget install --id Microsoft.Powershell -s winget
 ```
 
 To set PowerShell 7 as the default shell in _Windows Terminal_:
