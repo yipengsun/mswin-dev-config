@@ -20,7 +20,7 @@ if (!(Test-Path -path $spaceVimConfigDir)) {
 }
 
 # install neovim
-winget install -e -id 'Neovim.Neovim' `
+winget install -e --id 'Neovim.Neovim' `
     -s winget `
     --no-upgrade `
     --silent `
