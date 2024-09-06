@@ -41,22 +41,22 @@ param(
 }
 
 # set PATH
-$cmdpath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "commands")
-AddTo-Path $cmdpath
+$cmdPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "commands")
+AddTo-Path $cmdPath
 
 # set java CLASSPATH
-$classpath = -join($cmdpath, "\", "*")
-AddTo-EnvVar $classpath "CLASSPATH"
+$classPath = -join($cmdPath, "\", "*")
+AddTo-EnvVar $classPath "CLASSPATH"
 
 # for GNU coreutils on Windows
-AddTo-Path "C:\Program Files\Git\usr\bin"
+#AddTo-Path "C:\Program Files\Git\usr\bin"
 
 # for LLVM
 AddTo-Path "C:\Program Files\LLVM\bin"
 
 # for mamba
-$mambapath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "miniforge3", "\", "Scripts")
-AddTo-Path $mambapath
+#$mambaPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\", "miniforge3", "\", "Scripts")
+#AddTo-Path $mambaPath
 
 # for make
 #AddTo-Path "C:\Program Files (x86)\GnuWin32\bin"
