@@ -46,7 +46,6 @@ $pkgsDevTools =
 #Alacritty.Alacritty
 'wez.wezterm',
 'JanDeDobbeleer.OhMyPosh',
-'Neovim.Neovim',
 ####
 'Git.Git',
 'Kitware.CMake',

@@ -18,3 +18,11 @@ if (!(Test-Path -path $spaceVimConfigDir)) {
     Write-Host "Link SpaceVim config dir..." -ForegroundColor Green
     New-Item -ItemType SymbolicLink -Path $spaceVimConfigDir -Target $localSpaceVimConfigDir
 }
+
+# install neovim
+winget install -e -id 'Neovim.Neovim' `
+    -s winget `
+    --no-upgrade `
+    --silent `
+    --accept-package-agreements `
+    --accept-source-agreements
