@@ -21,6 +21,53 @@ config.default_prog = { 'powershell.exe' }
 -- key bindings --
 ------------------
 
+config.disable_default_key_bindings = true
+
+local act = wezterm.action
+config.keys = {
+  -- CTRL-SHIFT-L
+  -- activates the debug overlay
+  { key = 'L', mods = 'CTRL', action = act.ShowDebugOverlay },
+
+  -- CTRL-SHIFT-r
+  -- reload
+  { key = 'R', mods = 'CTRL', action = act.ReloadConfiguration },
+
+  -- CTRL-ALT c
+  -- create a new tab in the same domain as the current pane
+  {
+    key = 'c',
+    mods = 'CTRL|ALT',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  },
+
+  -- CTRL-ALT \
+  -- split current pane horizontally: p -> p1 | p2
+  {
+    key = '\\',
+    mods = 'CTRL|ALT',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+
+  -- CTRL-ALT '
+  -- split current pane vertically:
+  --   p -> p1
+  --        -
+  --        p2
+  {
+    key = "'",
+    mods = 'CTRL|ALT',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+
+  -- CTRL-ALT k
+  {
+    key = 'k',
+    mods = 'CTRL|ALT',
+    action = act.CloseCurrentPane { confirm = true },
+  },
+}
+
 
 --------
 -- ui --
