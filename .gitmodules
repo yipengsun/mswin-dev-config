@@ -5,3 +5,4 @@
 [submodule "submodules/SpaceVim"]
 	path = submodules/SpaceVim
 	url = git@github.com:SpaceVim/SpaceVim.git
+  ignore = dirty

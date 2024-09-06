@@ -38,6 +38,9 @@ Run.bat
 
 
 # optional: configure neovim
+cd submodules\SpaceVim
+git submodule update --init .
+..\..\tools\config-nvim.ps1
 ```
 
 
