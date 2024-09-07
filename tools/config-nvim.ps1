@@ -19,6 +19,7 @@ if (!(Test-Path -path $spaceVimConfigDir)) {
     New-Item -ItemType SymbolicLink -Path $spaceVimConfigDir -Target $localSpaceVimConfigDir
 }
 
+
 # install neovim
 winget install -e --id 'Neovim.Neovim' `
     -s winget `
@@ -26,3 +27,7 @@ winget install -e --id 'Neovim.Neovim' `
     --silent `
     --accept-package-agreements `
     --accept-source-agreements
+
+
+# set default editor to neovim for git
+git config --global core.editor 'nvim'
