@@ -27,15 +27,12 @@ config.disable_default_key_bindings = true
 
 local act = wezterm.action
 config.keys = {
-  -- CTRL-SHIFT c
   -- copy to clipboard
   {
     key = 'c',
     mods = 'CTRL|SHIFT',
     action = act.CopyTo 'ClipboardAndPrimarySelection'
   },
-
-  -- CTRL-SHIFT v
   -- paste from clibboard
   {
     key = 'v',
@@ -43,15 +40,12 @@ config.keys = {
     action = act.PasteFrom 'PrimarySelection'
   },
 
-  -- CTRL-SHIFT l
   -- activates the debug overlay
   { key = 'l', mods = 'CTRL|SHIFT', action = act.ShowDebugOverlay },
 
-  -- CTRL-SHIFT r
   -- reload
   { key = 'r', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
 
-  -- CTRL-ALT c
   -- create a new tab in the same domain as the current pane
   {
     key = 'c',
@@ -59,15 +53,12 @@ config.keys = {
     action = act.SpawnTab 'CurrentPaneDomain',
   },
 
-  -- CTRL-ALT \
   -- split current pane horizontally: p -> p1 | p2
   {
     key = '\\',
     mods = 'CTRL|ALT',
     action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
-
-  -- CTRL-ALT '
   -- split current pane vertically:
   --   p -> p1
   --        -
@@ -78,7 +69,6 @@ config.keys = {
     action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
 
-  -- CTRL-ALT k
   -- kill current pane
   {
     key = 'k',
@@ -86,15 +76,9 @@ config.keys = {
     action = act.CloseCurrentPane { confirm = true },
   },
 
-  -- CTRL-SHIFT n
   -- open a new window in cwd, not working on windows
-  {
-    key = 'n',
-    mods = 'CTRL|SHIFT',
-    action = act.SpawnWindow,
-  },
+  { key = 'n', mods = 'CTRL|SHIFT', action = act.SpawnWindow },
 
-  -- CTRL-SHIFT f
   -- open search overlay
   {
     key = 'f',
@@ -102,15 +86,12 @@ config.keys = {
     action = act.Search { CaseSensitiveString = '' },
   },
 
-  -- CTRL Tab
   -- jump to next tab
   {
     key = 'Tab',
     mods = 'CTRL',
     action = act.ActivateTabRelative(1),
   },
-
-  -- CTRL-SHIFT Tab
   -- jump to previous tab
   {
     key = 'Tab',
@@ -118,20 +99,60 @@ config.keys = {
     action = act.ActivateTabRelative(-1),
   },
 
-  -- SHIFT PageUp
-  -- scroll up 1 page
+  -- scroll page
   {
     key = 'PageUp',
     mods = 'SHIFT',
     action = act.ScrollByPage(-1),
   },
-
-  -- SHIFT PageDown
-  -- scroll down 1 page
   {
     key = 'PageDown',
     mods = 'SHIFT',
     action = act.ScrollByPage(1),
+  },
+
+  -- navigate between panes
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Left'),
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Right'),
+  },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Up'),
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivatePaneDirection('Down'),
+  },
+
+  -- resize current pane
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL|SHIFT|ALT',
+    action = act.AdjustPaneSize {'Left', 2},
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL|SHIFT|ALT',
+    action = act.AdjustPaneSize {'Right', 2},
+  },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL|SHIFT|ALT',
+    action = act.AdjustPaneSize {'Up', 2},
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL|SHIFT|ALT',
+    action = act.AdjustPaneSize {'Down', 2},
   },
 }
 
