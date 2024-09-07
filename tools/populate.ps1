@@ -46,12 +46,14 @@ if (!(Test-Path -path $pwshPath)) {
     New-Item $pwshPath -Type Directory
 }
 CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwshPath
+CopyTo-Wrapper (-join($localConfigDir, '\pwsh\config.json')) $pwshPath
 
 $pwsh7Path = -join([Environment]::GetFolderPath("MyDocuments"), '\PowerShell')
 if (!(Test-Path -path $pwsh7Path)) {
     New-Item $pwsh7Path -Type Directory
 }
 CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwsh7Path
+CopyTo-Wrapper (-join($localConfigDir, '\pwsh\config.json')) $pwsh7Path
 
 
 Write-Host "Populate uutil symblinks..." -ForegroundColor Green

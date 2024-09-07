@@ -30,4 +30,6 @@ If (Test-Path Alias:rm) { Remove-Item Alias:rm }
 
 
 # initiate oh-my-posh
-oh-my-posh init pwsh | Invoke-Expression
+# get folder path from $PROFILE
+$profileDir = Split-Path -Parent $PROFILE
+oh-my-posh init pwsh --config (-join($profileDir, "/config.json")) | Invoke-Expression
