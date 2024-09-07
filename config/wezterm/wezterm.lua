@@ -14,7 +14,7 @@ wezterm.on("gui-startup", function()
 end)
 
 -- use power shell 7
-config.default_prog = { 'pwsh.exe' }
+config.default_prog = { 'pwsh.exe', '-NoLogo' }
 
 config.scrollback_lines = 3000
 
