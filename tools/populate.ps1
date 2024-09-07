@@ -27,14 +27,18 @@ $localConfigDir = -join($parentDir, '\config')
 
 CopyTo-Wrapper (-join($localConfigDir, '\wezterm')) $configDir
 
-CopyTo-Wrapper (-join($localConfigDir, '\git\.gitconfig')) $env:USERPROFILE
-
 CopyTo-Wrapper (-join($localConfigDir, '\bash\.bash_profile')) $env:USERPROFILE
 CopyTo-Wrapper (-join($localConfigDir, '\bash\.bashrc')) $env:USERPROFILE
 
 CopyTo-Wrapper (-join($localConfigDir, '\firefox\.tridactylrc')) $env:USERPROFILE
 
 CopyTo-Wrapper (-join($localConfigDir, '\wsl\.wslconfig')) $env:USERPROFILE
+
+# git
+CopyTo-Wrapper (-join($localConfigDir, '\git\.gitconfig')) $env:USERPROFILE
+if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command git -ErrorAction SilentlyContinue)) {
+    git config --global core.editor nvim
+}
 
 #CopyTo-Wrapper (-join($localConfigDir, '\alacritty')) $env:USERPROFILE
 
