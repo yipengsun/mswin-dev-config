@@ -30,24 +30,61 @@ config.disable_default_key_bindings = true
 
 local act = wezterm.action
 config.keys = {
-  -- copy to clipboard
+  -- non ctrl-alt key bindings
+  -- copy/paste from/to clipboard
   {
     key = 'c',
     mods = 'CTRL|SHIFT',
     action = act.CopyTo 'ClipboardAndPrimarySelection'
   },
-  -- paste from clibboard
   {
     key = 'v',
     mods = 'CTRL|SHIFT',
     action = act.PasteFrom 'PrimarySelection'
   },
 
+  -- open search overlay
+  {
+    key = 'f',
+    mods = 'CTRL|SHIFT',
+    action = act.Search { CaseSensitiveString = '' },
+  },
+
+  -- open a new window in cwd, not working on windows
+  { key = 'Enter', mods = 'CTRL|SHIFT', action = act.SpawnWindow },
+
+  -- jump to next tab
+  {
+    key = 'Tab',
+    mods = 'CTRL',
+    action = act.ActivateTabRelative(1),
+  },
+  -- jump to previous tab
+  {
+    key = 'Tab',
+    mods = 'CTRL|SHIFT',
+    action = act.ActivateTabRelative(-1),
+  },
+
+  -- scroll page
+  {
+    key = 'PageUp',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(-1),
+  },
+  {
+    key = 'PageDown',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(1),
+  },
+
+
+  -- ctrl-alt key bindings
   -- activates the debug overlay
-  { key = 'l', mods = 'CTRL|SHIFT', action = act.ShowDebugOverlay },
+  { key = 'l', mods = 'CTRL|ALT', action = act.ShowDebugOverlay },
 
   -- reload
-  { key = 'r', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
+  { key = 'r', mods = 'CTRL|ALT', action = act.ReloadConfiguration },
 
   -- create a new tab in the same domain as the current pane
   {
@@ -79,60 +116,25 @@ config.keys = {
     action = act.CloseCurrentPane { confirm = true },
   },
 
-  -- open a new window in cwd, not working on windows
-  { key = 'n', mods = 'CTRL|SHIFT', action = act.SpawnWindow },
-
-  -- open search overlay
-  {
-    key = 'f',
-    mods = 'CTRL|SHIFT',
-    action = act.Search { CaseSensitiveString = '' },
-  },
-
-  -- jump to next tab
-  {
-    key = 'Tab',
-    mods = 'CTRL',
-    action = act.ActivateTabRelative(1),
-  },
-  -- jump to previous tab
-  {
-    key = 'Tab',
-    mods = 'CTRL|SHIFT',
-    action = act.ActivateTabRelative(-1),
-  },
-
-  -- scroll page
-  {
-    key = 'PageUp',
-    mods = 'SHIFT',
-    action = act.ScrollByPage(-1),
-  },
-  {
-    key = 'PageDown',
-    mods = 'SHIFT',
-    action = act.ScrollByPage(1),
-  },
-
   -- navigate between panes
   {
     key = 'LeftArrow',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL|ALT',
     action = act.ActivatePaneDirection('Left'),
   },
   {
     key = 'RightArrow',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL|ALT',
     action = act.ActivatePaneDirection('Right'),
   },
   {
     key = 'UpArrow',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL|ALT',
     action = act.ActivatePaneDirection('Up'),
   },
   {
     key = 'DownArrow',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL|ALT',
     action = act.ActivatePaneDirection('Down'),
   },
 
