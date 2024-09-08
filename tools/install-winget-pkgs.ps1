@@ -31,7 +31,8 @@ $pkgsApplications =
 'Mozilla.Firefox',
 'SumatraPDF.SumatraPDF',
 'mpv.net',
-'Valve.Steam'
+'Valve.Steam',
+'Microsoft.PowerToys'
 #'Tencent.WeChat',
 #'Tencent.WeCom',
 #'Sandboxie.Plus',
@@ -46,7 +47,6 @@ $pkgsDevTools =
 #Alacritty.Alacritty
 'wez.wezterm',
 'JanDeDobbeleer.OhMyPosh',
-'Microsoft.PowerToys',
 ####
 'Git.Git',
 'Kitware.CMake',
