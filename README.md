@@ -37,7 +37,7 @@ git submodule update --init .
 Run.bat
 
 
-# optional: configure neovim
+# optional: install & configure neovim
 cd submodules\SpaceVim
 git submodule update --init .
 ..\..\tools\config-nvim.ps1
