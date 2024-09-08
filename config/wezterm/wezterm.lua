@@ -8,8 +8,8 @@ local config = wezterm.config_builder()
 -----------
 
 -- maximize window on startup
-wezterm.on("gui-startup", function()
-  local tab, pane, window = wezterm.mux.spawn_window{}
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
 
