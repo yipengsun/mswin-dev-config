@@ -57,6 +57,7 @@ git submodule update --init .
 (winget list) -match ' winget$'
 ```
 
+
 ### Install FiraCode manually
 
 ```powershell
