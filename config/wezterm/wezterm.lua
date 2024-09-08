@@ -1,17 +1,20 @@
 local wezterm = require 'wezterm'
 local dracula = require 'dracula'
 
+
+------------
+-- config --
+------------
+
 local config = wezterm.config_builder()
 
------------
--- config --
------------
 
 -- maximize window on startup
 wezterm.on("gui-startup", function(cmd)
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
+
 
 -- use power shell 7
 config.default_prog = { 'pwsh.exe', '-NoLogo' }
@@ -184,6 +187,7 @@ config.mouse_bindings = {
 -- font
 config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 12
+
 
 -- color theme
 config.colors = dracula
