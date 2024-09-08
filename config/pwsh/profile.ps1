@@ -11,6 +11,13 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PsReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 
+#################
+# env variables #
+#################
+
+$env:VIRTUAL_ENV_DISABLE_PROMPT = 1
+
+
 ###########
 # aliases #
 ###########
