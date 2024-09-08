@@ -173,3 +173,7 @@ Locations of folders like _Music_ can be changed via the following registry item
 ```
 HKEY_CURRENT_USER \ Software \ Microsoft \ Windows \ CurrentVersion \ Explorer \ User Shell Folders
 ```
+
+#### Open application in current monitor
+
+Use PowerToy: **FancyZones** > **Move newly created windows to current active monitor**

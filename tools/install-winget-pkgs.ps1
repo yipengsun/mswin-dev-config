@@ -46,6 +46,7 @@ $pkgsDevTools =
 #Alacritty.Alacritty
 'wez.wezterm',
 'JanDeDobbeleer.OhMyPosh',
+'Microsoft.PowerToys',
 ####
 'Git.Git',
 'Kitware.CMake',
