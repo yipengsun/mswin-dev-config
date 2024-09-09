@@ -22,6 +22,17 @@ config.default_prog = { 'pwsh.exe', '-NoLogo' }
 config.scrollback_lines = 3000
 
 
+-- wsl domain
+config.wsl_domains = {
+  {
+    name = 'WSL:NixOS',
+    distribution = 'NixOS',
+    default_prog = { '/run/current-system/sw/bin/zsh' },
+    default_cwd = '~',
+  },
+}
+
+
 ------------------
 -- key bindings --
 ------------------
@@ -158,6 +169,13 @@ config.keys = {
     key = 'DownArrow',
     mods = 'CTRL|SHIFT|ALT',
     action = act.AdjustPaneSize {'Down', 2},
+  },
+
+  -- open a wsl session in a new tab
+  {
+    key = 'w',
+    mods = 'CTRL|ALT',
+    action = act.SpawnTab { DomainName = 'WSL:NixOS'},
   },
 }
 
