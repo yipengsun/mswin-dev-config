@@ -171,6 +171,12 @@ config.keys = {
     action = act.AdjustPaneSize {'Down', 2},
   },
 
+  -- open a power shell session in a new tab
+  {
+    key = 'q',
+    mods = 'CTRL|ALT',
+    action = act.SpawnTab { DomainName = 'local'},
+  },
   -- open a wsl session in a new tab
   {
     key = 'w',
