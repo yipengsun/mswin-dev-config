@@ -82,7 +82,7 @@ wsl --update --pre-release
 
 wsl --terminate NixOS
 wsl --shutdown
-wsl --export NixOS D:\WSL\backup\NixOS.tar  # can use '--vhd' flag
+wsl --export NixOS D:\WSL\backup\NixOS.tar
 # optional: unregister
 wsl --unregister NixOS
 
