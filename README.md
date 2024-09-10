@@ -177,3 +177,14 @@ HKEY_CURRENT_USER \ Software \ Microsoft \ Windows \ CurrentVersion \ Explorer \
 #### Open application in current monitor
 
 Use PowerToy: **FancyZones** > **Move newly created windows to current active monitor**
+
+#### Pin a `winget` package version
+
+Doing the following to prevent the package from updating with `winget upgrade --all`:
+
+```powershell
+# omit `--version` to pin on current version
+winget pin add --id SandBoxie.Plus --version 1.14.8
+
+winget pin list  # check that the op was successful
+```
