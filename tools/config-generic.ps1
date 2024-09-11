@@ -59,6 +59,9 @@ if (!(Test-Path -path $pwsh7Path)) {
 CopyTo-Wrapper (-join($localConfigDir, '\pwsh\profile.ps1')) $pwsh7Path
 CopyTo-Wrapper (-join($localConfigDir, '\pwsh\config.json')) $pwsh7Path
 
+# disable auto-update notice
+oh-my-posh disable notice
+
 
 Write-Host "Populate uutil symblinks..." -ForegroundColor Green
 
