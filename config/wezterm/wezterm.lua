@@ -9,6 +9,9 @@ local dracula = require 'dracula'
 local config = wezterm.config_builder()
 
 
+config.scrollback_lines = 3000
+config.warn_about_missing_glyphs = false
+
 -- maximize window on startup
 wezterm.on("gui-startup", function(cmd)
   local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
@@ -18,8 +21,6 @@ end)
 
 -- use power shell 7
 config.default_prog = { 'pwsh.exe', '-NoLogo' }
-
-config.scrollback_lines = 3000
 
 
 -- wsl domain
