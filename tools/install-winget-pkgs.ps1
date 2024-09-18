@@ -44,6 +44,7 @@ $pkgsApplications =
 
 $pkgsDevTools =
 'Microsoft.PowerShell',
+'errata-ai.Vale',
 #Alacritty.Alacritty
 'wez.wezterm',
 'JanDeDobbeleer.OhMyPosh',

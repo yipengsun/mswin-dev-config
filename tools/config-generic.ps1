@@ -34,6 +34,8 @@ CopyTo-Wrapper (-join($localConfigDir, '\firefox\.tridactylrc')) $env:USERPROFIL
 
 CopyTo-Wrapper (-join($localConfigDir, '\wsl\.wslconfig')) $env:USERPROFILE
 
+CopyTo-Wrapper (-join($localConfigDir, '\vale\.vale.ini')) $env:USERPROFILE
+
 # git
 CopyTo-Wrapper (-join($localConfigDir, '\git\.gitconfig')) $env:USERPROFILE
 if ((Get-Command nvim -ErrorAction SilentlyContinue) -and (Get-Command git -ErrorAction SilentlyContinue)) {
