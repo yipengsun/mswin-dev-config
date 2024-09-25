@@ -28,7 +28,7 @@ config.wsl_domains = {
   {
     name = 'WSL:NixOS',
     distribution = 'NixOS',
-    default_prog = { '/run/current-system/sw/bin/zsh' },
+    default_prog = { '/run/current-system/sw/bin/fish' },
     default_cwd = '~',
   },
 }
@@ -93,10 +93,10 @@ config.keys = {
 
   -- ctrl-alt key bindings
   -- activates the debug overlay
-  { key = 'l', mods = 'CTRL|ALT', action = act.ShowDebugOverlay },
+  { key = 'l', mods = 'CTRL|SHIFT|ALT', action = act.ShowDebugOverlay },
 
   -- reload
-  { key = 'r', mods = 'CTRL|ALT', action = act.ReloadConfiguration },
+  { key = 'r', mods = 'CTRL|SHIFT|ALT', action = act.ReloadConfiguration },
 
   -- create a new tab in the same domain as the current pane
   {
