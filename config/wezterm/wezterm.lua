@@ -28,7 +28,15 @@ config.wsl_domains = {
   {
     name = 'WSL:NixOS',
     distribution = 'NixOS',
-    default_prog = { '/run/current-system/sw/bin/fish' },
+    default_prog = {
+      '/run/current-system/sw/bin/fish',
+      '-c',
+      -- to get a working user login session
+      'while not test -S /run/dbus/system_bus_socket; sleep 1; end;' ..
+      'if test -e /run/user/1000/bus; exec fish; end;' ..
+      'sudo systemctl restart user@1000.service;' ..
+      'exec fish;',
+    },
     default_cwd = '~',
   },
 }
