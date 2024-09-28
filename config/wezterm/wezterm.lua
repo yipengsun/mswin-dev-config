@@ -205,13 +205,13 @@ end
 
 
 config.mouse_bindings = {
-	-- CTRL left-click
+  -- CTRL left-click
   -- open url under the mouse cursor
-	{
-		event = { Up = { streak = 1, button = 'Left' } },
-		mods = 'CTRL',
-		action = act.OpenLinkAtMouseCursor,
-	},
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.OpenLinkAtMouseCursor,
+  },
 }
 
 
