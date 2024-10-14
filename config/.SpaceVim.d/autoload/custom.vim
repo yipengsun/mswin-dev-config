@@ -6,8 +6,7 @@ function! custom#before() abort
   vnoremap <C-c> "+y
   vnoremap <C-x> "+x
 
-  " enable ctrl+v in normal/insert mode
-  nnoremap <C-v> "+p
+  " enable ctrl+v in insert mode
   inoremap <C-v> <ESC>"+p
 endfunction
 
