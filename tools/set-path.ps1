@@ -55,6 +55,10 @@ AddTo-Path "C:\Program Files\LLVM\bin"
 #$mambaPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\miniforge3\Scripts")
 #AddTo-Path $mambaPath
 
+# for uv tools
+$uvToolPath = -join([Environment]::GetEnvironmentVariable("USERPROFILE"), "\.local\bin")
+AddTo-Path $uvToolPath
+
 
 # set java CLASSPATH
 #AddTo-EnvVar (-join($cmdDir, "\*")) "CLASSPATH"
