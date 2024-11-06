@@ -50,6 +50,7 @@ $pkgsDevTools =
 'JanDeDobbeleer.OhMyPosh',
 ####
 'Git.Git',
+'Rclone.Rclone',
 'Kitware.CMake',
 'Ninja-build.Ninja',
 'Rustlang.Rustup',

@@ -20,6 +20,7 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 # install winget packages
 .\tools\install-winget-pkgs.ps1
+# then manually install git-annex from its official site
 
 # install 'FiraCode Nerd Font Mono'
 oh-my-posh font install FiraCode
